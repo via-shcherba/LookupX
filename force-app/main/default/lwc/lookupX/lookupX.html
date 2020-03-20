@@ -1,0 +1,43 @@
+<template>
+    <lightning-card title={labels.lookupLWCLbl}  icon-name="utility:connected_apps">
+        <div class="slds-box_small">
+            <teplate if:true={error}>
+                <div>{error}</div>
+            </teplate>        
+            <template if:false={error}>
+                <c-object-a-p-i-getter
+                    objects={fields}
+                    onsetobjectname={getFieldName}
+                    label={labels.chooseLookupLbl}
+                    >
+                </c-object-a-p-i-getter>
+                <lightning-record-edit-form
+                    record-id={recordId}
+                    object-api-name={objectApiName}
+                    onsuccess={handleSuccess}
+                    >
+                    <lightning-messages></lightning-messages>
+                    <template if:true={fieldName}>
+                        <lightning-input-field field-name={fieldName}>
+                        </lightning-input-field>
+                        <lightning-button
+                            class="slds-m-top_small slds-p-horizontal_xx-small"
+                            variant="brand"
+                            type="submit"
+                            name="update"
+                            label={labels.updateBtnLbl}
+                            >
+                        </lightning-button>
+                        <lightning-button 
+                            class="slds-m-top_small slds-p-horizontal_xx-small"
+                            variant="destructive"
+                            label={labels.cancelBtnLbl}
+                            onclick={toCancel}
+                            >
+                        </lightning-button>
+                    </template>
+                </lightning-record-edit-form>
+            </template>
+        </div>
+    </lightning-card>
+</template>

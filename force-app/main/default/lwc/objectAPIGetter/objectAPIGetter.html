@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-form-element__control slds-m-bottom_xx-small slds-p-horizontal_xx-small">
+        <div class="search">
+            <lightning-input 
+                type="text" 
+                autocomplete="off" 
+                label={label} 
+                onchange={enterKey} 
+                onclick={getObjects} 
+                value={inputValue}
+                >
+            </lightning-input>
+        </div>
+        <template if:true={objectsLabels}>
+            <div class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox">
+                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                    <li role="presentation" class="slds-listbox__item">
+                        <template for:each={objectsLabels} for:item="item">
+                            <div key={item.key} data-number={item.number} onclick={setSelectedLabel}
+                                class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_term">                               
+                                <span class="slds-media__body">
+                                    <span
+                                        class="slds-listbox__option-text slds-listbox__option-text_entity">{item.label}</span>
+                                </span>
+                            </div>
+                        </template>
+                    </li>
+                </ul>
+            </div>
+        </template>
+    </div>
+</template>
