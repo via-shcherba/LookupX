@@ -4,7 +4,8 @@
 ## connection between related sObjects
 
 You can use this Component for any object.  
-It will find all lookups and show you them.  
+It will find all lookups and show you them.    
+For testing: lookup@task.com password: 29051983s
   
   
 Designed by via.shcherba  
